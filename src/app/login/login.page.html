@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>GuildForge</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="login-content" fullscreen>
+  <div class="login-wrapper">
+    <ion-card class="login-card">
+      <h3>¡Bienvenido Jugador!</h3>
+      <h2>Ingresa para encontrar nuevos compañeros</h2>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  
+        <!-- Nombre de Usuario -->
+        <ion-item lines="full">
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="nick"></ion-input>
+        </ion-item>
+        <ion-note
+          slot="error"
+          *ngIf="loginForm.controls['nick'].invalid && loginForm.controls['nick'].touched"
+        >
+          El nick debe tener entre 3 y 16 caracteres.
+        </ion-note>
+    
+        <!-- Contraseña -->
+        <ion-item lines="full">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <ion-note
+          slot="error"
+          *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"
+        >
+          La contraseña debe tener al menos 6 caracteres.
+        </ion-note>
+    
+        <!-- Botón Ingresar -->
+        <ion-button
+          expand="block"
+          type="submit"
+          [disabled]="loginForm.invalid"
+          [color]="loginForm.valid ? 'primary' : 'medium'"
+        >
+          Ingresar
+        </ion-button>
+    
+      </form>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>© 2025 GuildForge</ion-title>
+  </ion-toolbar>
+</ion-footer>

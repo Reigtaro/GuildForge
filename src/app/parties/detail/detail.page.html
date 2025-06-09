@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/parties"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ party.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="details-content ion-padding" fullscreen>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>ID: {{ party.id }}</ion-card-subtitle>
+      <ion-card-title>{{ party.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Creador:</strong> {{ party.creator }}</p>
+      <p><strong>Miembros:</strong> {{ party.members.length }}/{{ party.maxMembers }}</p>
+      <p>
+        <strong>Estado:</strong>
+        <span *ngIf="state==='available'">✅ Disponible</span>
+        <span *ngIf="state==='protected'">🔒 Protegida</span>
+        <span *ngIf="state==='full'">🚫 Lleno</span>
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="primary" (click)="join()" [disabled]="isMember || state==='full'">
+    {{ isMember ? 'Ya eres miembro' : state==='protected' ? 'Ingresar contraseña' : 'Unirse a la Party' }}
+  </ion-button>
+
+  <ion-button expand="block" color="medium" *ngIf="state==='full'" disabled>
+    ¡Party Llena!
+  </ion-button>
+
+  <ion-button expand="block" color="danger" [disabled]="!isMember" (click)="leave()">
+    Salir de la Party
+  </ion-button>
+
+  <ion-button expand="block" color="tertiary" (click)="openChat()">
+    💬 Chat de la Party
+  </ion-button>
+
+  <ion-list>
+    <ion-list-header>Miembros</ion-list-header>
+    <ion-item *ngFor="let m of party.members">
+      <ion-icon slot="start" name="person-circle"></ion-icon>
+      {{ m }}
+    </ion-item>
+  </ion-list>
+</ion-content>

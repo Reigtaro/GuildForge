@@ -1,0 +1,7 @@
+{
+  "name": "GuildForge",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

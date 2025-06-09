@@ -1,0 +1,73 @@
+.parties-content {
+    --background: var(--app-bg);
+    padding: 0 8px;
+}
+
+ion-searchbar {
+    margin: 12px;
+    width: calc(100% - 24px);
+}
+
+/* Colores de fondo y texto según estado */
+ion-card.card-available {
+    --background: var(--ion-color-success);
+    --color: #000;
+}
+
+ion-card.card-protected {
+    --background: var(--ion-color-warning);
+    --color: #000;
+}
+
+ion-card.card-full {
+    --background: var(--ion-color-danger);
+    --color: #fff;
+}
+
+/* Estilos generales de las cards */
+.party-id {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    color: inherit;
+    /* hereda el color definido por card-available / protected / full */
+}
+
+ion-card {
+    border-radius: 12px;
+    margin: 8px 0;
+
+    ion-card-header {
+        text-align: center;
+        padding-bottom: 4px;
+
+        ion-card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        ion-card-subtitle {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+    }
+
+    ion-card-content {
+        padding-top: 4px;
+
+        p {
+            margin: 6px 0;
+            font-size: 0.9rem;
+            line-height: 1.3;
+
+            strong {
+                font-weight: 600;
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+.login-content {
+    --background: var(--app-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+}
+
+.login-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 340px;
+    padding: 0 5px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 340px;
+    border-radius: 12px;
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 12px var(--shadow-color);
+
+    h3 {
+        font-size: 1.5rem;
+        text-align: center;
+        color: var(--text-main);
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        text-align: center;
+        color: var(--text-main);
+    }
+
+  
+    form {
+        padding: 24px 16px;
+
+        .text-label {
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+    }
+}
+  
+ion-note[slot="error"] {
+    color: var(--ion-color-danger);
+    margin-left: 16px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+ion-label {
+    color: var(--text-main);
+}
+
+ion-item {
+    --background: var(--ion-item);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    --color: var(--text-main);
+    --placeholder-color: var(--text-sub);
+}

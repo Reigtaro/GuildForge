@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/parties"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear Party</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="create-content ion-padding" fullscreen>
+  <form [formGroup]="form" (ngSubmit)="crear()">
+    <ion-item>
+      <ion-label position="floating">Nombre Party</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña (opcional)</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Máx. Miembros</ion-label>
+      <ion-input type="number" formControlName="maxMembers"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="form.invalid">
+      Crear
+    </ion-button>
+  </form>
+</ion-content>
